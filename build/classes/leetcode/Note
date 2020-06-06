@@ -1,0 +1,38 @@
+1.快慢指针
+    1.寻找链表中心点（234）
+    快指针每次两个，慢指针每次一个，快指针到结尾，慢指针到中点
+    2.追及 循环（141）
+    快指针先走，慢指针后走，快指针到终点，则没有循环，否则（有循环），快指针终究会追上慢指针
+    3.慢指针存放 快指针探索（27）
+    删除数组重复元素，可以让慢指针在后面，快指针等于需要删除的元素，就把快指针的位置拷贝给慢指针，慢指针走一步，快指针继续
+    4.数组双指针对撞   双路快排partition操作 。
+    5.数组双指针滑动窗口 连续子串问题leetcode209 leetcode3    
+
+
+
+1.不要在循环判断条件直接stack.peek == null，这样stack为空没法处理，写成 !stack.isEmpty() 然后循环里进行pop或者peek
+2.创建数组 String[]   char[]  int[]
+3.split()是返回一个String[],括号里放regex，按照regex分隔开，空格用" "，而不是""     需要分成字符，用toChar(),返回一个char[]
+4.判断char是否为空格 。 char == ' '   而不是char == " "
+5.分离一个int各个位数字，用 循环 每次 num = n%10  n/=10  这样每次循环num依次是int的每个位数字
+6.可以将int转化为string  String s=""+n; ，快速统计int的位数s.length()
+7.超出整数大小限制 l>Integer.MAX_VALUE || l<Integer>MIN_VALUE 用long，long初始化为 。Long l = 0L；  l.intValue() 
+8.查看string某一位置的字符，用 charAt()    将char转化成int，需要进行一定处理 ：  int x = (int)st.charAt(i) - (int)('0')
+9.次方计算 Math.pow(10,i)  10的i次方，返回double值
+10.链表转化为Array。直接toArray返回的是object[]，不能转化为其他类型，如果需要返回其他类型数组，需要用list.toArray(T[] t),即内部
+   传入一个需求的数组，注意，链表必须支持传出数组类型的范型。List<String> res = new LinkedList(); return res.toArray(new String[res.size()]);
+11.利用comparator修改java内置类的比较方法。leetcode347
+
+12.一个数和 0 做 XOR 运算等于本身：a⊕0 = a, 一个数和其本身做 XOR 运算等于 0：a⊕a = 0, XOR 运算满足交换律和结合律：a⊕b⊕a = (a⊕a)⊕b = 0⊕b = b。 leetcode136
+13.对于String， equal比较数值，==比较地址。
+14. 大顶堆，以及修改优先队列为最大或者最小堆。看leetcode451
+15. 对于set有HashSet和TreeSet 。 HashSet O(n)   TreeSet保留了数据的顺序性，时间复杂度位O(log n),     leetcode220
+    有方法 。set.ceil(num)  set.floor(num)。 在set里面查找最小的大于num的数，和最大的小于num的数。    HashMap 和 TreeMap同理
+16. 查找表 滑动窗口 。 对于代表滑动窗口的数据结构例如set，的初始内部元素，不用单独处理，只需要修改维持滑动窗口的方法为： 当set的size超过滑动窗口大小，就remove一个出去
+17. 比int长的整形 long
+    
+
+
+
+经典代码模版
+1。回溯 。  46 。47 。17 。77 。 39 。 40  216 。401（401最简单的递归 39 的剪枝，去重复方法 。40的小剪枝操作，防止遍历重复元素  78 和 90 类似，90和40一样小剪枝，去重复） 。回溯注意：递归的时候 begin是从 i+1 。而不是begin+1
